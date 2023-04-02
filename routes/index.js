@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
   }
 });
 
-router.get("/:cityName", function (req, res) {
+router.get("/:cityName",requiresAuth(), function (req, res) {
   let city = "";
   city = req.params.cityName;
 
@@ -45,7 +45,7 @@ router.get("/:cityName", function (req, res) {
       if (weatherData.rain) {
         rain = weatherData.rain["1h"] || weatherData.rain["3h"] + "mm";
       }
-      // console.log(dateString)
+
       const weatherOBJ = {
         temp: weatherData.main.temp,
         humidity: weatherData.main.humidity,
@@ -59,4 +59,5 @@ router.get("/:cityName", function (req, res) {
     });
   });
 });
+
 module.exports = router;
