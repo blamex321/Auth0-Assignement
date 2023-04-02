@@ -18,7 +18,6 @@ router.post("/:cityName",function(req,res){
     if(city === "new-york"){
         city = "new york city";
     };
-    let weatherOBJ = {};
     const apiKey = process.env.APIKEY;
     const url = "https://api.openweathermap.org/data/2.5/weather?appid=" + apiKey + "&q= " + city + " &units=metric";
     https.get(url,function(response){
@@ -35,7 +34,15 @@ router.post("/:cityName",function(req,res){
             const dateString = date + "/" + month + "/" + year;
 
             // console.log(dateString)
-            res.render("weather",{temp : weatherData.main.temp});
+            const r = "1h";
+            const weatherOBJ = {
+                temp : weatherData.main.temp,
+                humidity : weatherData.main.humidity,
+                wind : weatherData.wind.speed,
+                rain : weatherData.rain['1h'],
+                date : dateString
+            }
+            res.render("weather",{currWeather : weatherOBJ});
         });
     });
 
