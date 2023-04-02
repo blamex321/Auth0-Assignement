@@ -1,3 +1,12 @@
+body{
+  margin:16px;
+}
+
+.routing-button{
+  color: #ce9c95;
+  width: 100%;
+}
+
 .border-pretty {
   border: 1px solid #ce9c95;
 }

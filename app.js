@@ -2,11 +2,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const { auth } = require('express-openid-connect');
+const landingRoute = require('./routes/index');
+const ejs = require('ejs');
 const app = express();
 
-app.use(express.static(__dirname+"/public"));
 
-
+app.use(express.static("public"));
+app.set('view engine', 'ejs');
 
 const config = {
     authRequired: false,
@@ -20,9 +22,7 @@ if (!config.baseURL && !process.env.BASE_URL && process.env.PORT && process.env.
 
 app.use(auth(config));
 
-app.get("/",function(req,res){
-    res.sendFile(__dirname + "/index.html");
-});
+app.use("/",landingRoute);
 
 app.listen(port,function(){
     console.log("Server started at 3000");
