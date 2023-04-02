@@ -1,13 +1,47 @@
 body{
   margin:16px;
 }
-
+.btn{
+  margin:8px;
+}
+.table{
+  border: none;
+}
+table, th, td {
+  border: 1px solid;
+}
+td{
+  padding-left:50%;
+}
 .routing-button{
   color: #ce9c95;
-  width: 100%;
+  width: 50%;
 }
-
+.index-div{
+  align-self: center;
+  margin-left:25%;
+}
 .border-pretty {
   border: 1px solid #ce9c95;
 }
+.weather-div{
+  margin: auto;
+  width: 50%;
+}
 
+.body-center {
+  align-items: center;
+  padding: 70px 0;
+  margin-top: 12%;
+}
+.cell-div{
+  padding-left:50%;
+  align-items: center;
+}
+
+.item-div{
+  margin-left:25%;
+}
+.button{
+  width:100%;
+}
