@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
   }
 });
 
-router.get("/:cityName",requiresAuth(), function (req, res) {
+router.post("/:cityName",requiresAuth(), function (req, res) {
   let city = "";
   city = req.params.cityName;
 
